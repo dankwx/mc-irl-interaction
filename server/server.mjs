@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./firebase.js";
 
 const app = express();
@@ -9,10 +9,13 @@ app.use(cors());
 
 app.get("/data", async (req, res) => {
   const db = getFirestore();
-  const bausRef = collection(db, "baus");
-  const bausSnapshot = await getDocs(bausRef);
-  const bausList = bausSnapshot.docs.map((doc) => doc.data());
-  res.json(bausList);
+  const bauDocRef = doc(db, "baus", "ZyejZzpG4ScQCEnEerAQ");
+  const bauDocSnapshot = await getDoc(bauDocRef);
+  if (bauDocSnapshot.exists()) {
+    res.json(bauDocSnapshot.data());
+  } else {
+    res.status(404).json({ error: "Document not found" });
+  }
 });
 
 app.listen(port, () => {

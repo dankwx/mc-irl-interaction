@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 
-type DataType = {
-  message: string;
-};
-
-export function useFetchData(url: string): DataType | null {
-  const [data, setData] = useState<DataType | null>(null);
+export function useFetchData<T>(url: string): T | null {
+  const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
     fetch(url)
