@@ -1,42 +1,61 @@
-import styles from "./Home.module.scss";
+import { Accordion, Card, useAccordionButton } from "react-bootstrap";
 import { useFetchData } from "../../hooks/useApi";
-import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import styles from "./Home.module.scss";
 
 interface BauData {
-  [key: string]: string[];
+  nome: string;
+  itens: {
+    nome: string;
+    quantidade: number;
+  }[];
+}
+
+function CustomToggle({
+  children,
+  eventKey,
+}: {
+  children: React.ReactNode;
+  eventKey: string;
+}) {
+  const decoratedOnClick = useAccordionButton(eventKey);
+
+  return (
+    <button type="button" onClick={decoratedOnClick}>
+      {children}
+    </button>
+  );
 }
 
 export default function Home() {
-  const [selectedBau, setSelectedBau] = useState<string | null>(null);
-  const data = useFetchData<BauData>("http://localhost:3001/data");
-
-  const handleBauClick = (bau: string) => {
-    setSelectedBau(bau);
-  };
+  const data = useFetchData<BauData[]>("http://localhost:3001/data");
 
   return (
-    <div className={styles.page}>
+    <div>
       <h1 className={styles.titulo}>Titulo</h1>
       {data ? (
-        <>
-          <ul>
-            {Object.keys(data).map((bau) => (
-              <li key={bau} onClick={() => handleBauClick(bau)}>
-                {bau}
-              </li>
-            ))}
-          </ul>
-          {selectedBau && Array.isArray(data[selectedBau]) && (
-            <>
-              <h2>Items in {selectedBau}:</h2>
-              <ul>
-                {data[selectedBau].map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </>
-          )}
-        </>
+        <Accordion>
+          {data.map((bau, index) => (
+            <Card key={bau.nome}>
+              <Card.Header>
+                <CustomToggle eventKey={index.toString()}>
+                  {bau.nome}
+                </CustomToggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey={index.toString()}>
+                <Card.Body>
+                  <ul>
+                    {bau.itens.map((item) => (
+                      <li key={item.nome}>
+                        {item.nome}: {item.quantidade}
+                      </li>
+                    ))}
+                  </ul>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          ))}
+        </Accordion>
       ) : (
         <p>Loading...</p>
       )}
