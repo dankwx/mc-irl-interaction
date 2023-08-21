@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import styles from "./Home.module.scss";
 
 interface BauData {
+  id: string;
   nome: string;
   itens: {
     nome: string;
@@ -39,7 +40,7 @@ export default function Home() {
             <Card key={bau.nome}>
               <Card.Header>
                 <CustomToggle eventKey={index.toString()}>
-                  {bau.nome}
+                  {bau.nome} - ID: {bau.id}
                 </CustomToggle>
               </Card.Header>
               <Accordion.Collapse eventKey={index.toString()}>
