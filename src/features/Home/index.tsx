@@ -1,32 +1,9 @@
-import { Accordion, Card, useAccordionButton } from "react-bootstrap";
+import { Accordion, Card } from "react-bootstrap";
+import { CustomToggle } from "../../components/CustomToggle";
 import { useFetchData } from "../../hooks/useApi";
+import { BauData } from "../../types/BauData";
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "./Home.module.scss";
-
-interface BauData {
-  id: string;
-  nome: string;
-  itens: {
-    nome: string;
-    quantidade: number;
-  }[];
-}
-
-function CustomToggle({
-  children,
-  eventKey,
-}: {
-  children: React.ReactNode;
-  eventKey: string;
-}) {
-  const decoratedOnClick = useAccordionButton(eventKey);
-
-  return (
-    <button type="button" onClick={decoratedOnClick}>
-      {children}
-    </button>
-  );
-}
 
 export default function Home() {
   const data = useFetchData<BauData[]>("http://localhost:3001/data");
@@ -58,7 +35,7 @@ export default function Home() {
           ))}
         </Accordion>
       ) : (
-        <p>Loading...</p>
+        <p>Carregando...</p>
       )}
     </div>
   );
