@@ -1,3 +1,43 @@
-.titulo{
-    font-size: 2rem;
+.titulo {
+  font-size: 2rem;
+}
+
+.chestArea {
+  width: 100%;
+  height: 20%;
+  background-color: red;
+  display: flex;
+  .chest {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
+  }
+  .singleChest {
+    background-color: aqua;
+  }
+}
+
+.modal-open .chest {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aqua;
+  width: 900px;
+}
+
+.chestImage {
+  width: 50%;
+  height: auto;
+}
+
+.modalPai {
+  width: 100%;
+  height: 100%;
+  .modalBody {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+  }
 }
