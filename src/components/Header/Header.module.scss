@@ -17,10 +17,14 @@
       color: #7f8189;
       font-size: 1.5rem;
       flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
     }
-    .title:hover{
-        filter: brightness(1.2); /* Ajuste o valor para aclarar a imagem conforme desejado */
-  transition: filter 0.3s ease;
+    .title:hover {
+      filter: brightness(1.2);
+      transition: filter 0.3s ease;
     }
     img {
       max-width: 100%;
@@ -28,9 +32,9 @@
       margin-left: 4%;
       cursor: pointer;
     }
-    img:hover{
-        filter: brightness(1.2); /* Ajuste o valor para aclarar a imagem conforme desejado */
-  transition: filter 0.3s ease;
+    img:hover {
+      filter: brightness(1.2);
+      transition: filter 0.3s ease;
     }
   }
 }
