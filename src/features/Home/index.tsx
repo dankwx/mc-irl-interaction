@@ -1,5 +1,6 @@
 import { Accordion, Card, Modal } from "react-bootstrap";
 import { CustomToggle } from "../../components/CustomToggle";
+import { Header } from "../../components/Header/Header";
 import { useFetchData } from "../../hooks/useApi";
 import { BauData } from "../../types/BauData";
 import "bootstrap/dist/css/bootstrap.css";
@@ -20,8 +21,8 @@ export default function Home() {
   const selectedBau = data?.find((bau) => bau.id === selectedBauId);
 
   return (
-    <div>
-      <h1 className={styles.titulo}>Titulo</h1>
+    <div className={styles.HomeBody}>
+      <Header />
       {data ? (
         <>
           <Accordion>
@@ -50,7 +51,7 @@ export default function Home() {
           <div className={styles.chestArea}>
             {data.map((bau) => (
               <div className={styles.singleChest} key={bau.id}>
-                <h1>{bau.id}</h1>
+                {/* <h1>{bau.id}</h1> */}
                 <img
                   src={chest}
                   className={styles.chest}

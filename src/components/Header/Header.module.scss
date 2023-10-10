@@ -1,0 +1,36 @@
+.HeaderBody {
+  width: 100%;
+  height: 6%;
+  display: flex;
+  background-color: #222222;
+  margin-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  align-items: center;
+  flex: 1;
+  .navbarLeft {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .title {
+      color: #7f8189;
+      font-size: 1.5rem;
+      flex: 1;
+    }
+    .title:hover{
+        filter: brightness(1.2); /* Ajuste o valor para aclarar a imagem conforme desejado */
+  transition: filter 0.3s ease;
+    }
+    img {
+      max-width: 100%;
+      height: 90%;
+      margin-left: 4%;
+      cursor: pointer;
+    }
+    img:hover{
+        filter: brightness(1.2); /* Ajuste o valor para aclarar a imagem conforme desejado */
+  transition: filter 0.3s ease;
+    }
+  }
+}
