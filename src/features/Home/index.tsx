@@ -1,6 +1,6 @@
 import { Accordion, Card, Modal } from "react-bootstrap";
 import { CustomToggle } from "../../components/CustomToggle";
-import { Header } from "../../components/Header/Header";
+import { Header } from "../../components/Header";
 import { useFetchData } from "../../hooks/useApi";
 import { BauData } from "../../types/BauData";
 import "bootstrap/dist/css/bootstrap.css";
@@ -24,44 +24,25 @@ export default function Home() {
     <div className={styles.HomeBody}>
       <Header />
       {data ? (
-        <>
-          <Accordion>
-            {data.map((bau, index) => (
-              <Card key={bau.nome}>
-                <Card.Header>
-                  <CustomToggle eventKey={index.toString()}>
-                    {bau.nome} - ID: {bau.id}
-                  </CustomToggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey={index.toString()}>
-                  <Card.Body>
-                    <ul>
-                      {bau.itens.map((item) => (
-                        <li key={item.nome}>
-                          {item.nome}: {item.quantidade}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            ))}
-          </Accordion>
-
-          <div className={styles.chestArea}>
-            {data.map((bau) => (
-              <div className={styles.singleChest} key={bau.id}>
-                {/* <h1>{bau.id}</h1> */}
+        <div className={styles.containerCards}>
+          {data.map((bau) => (
+            <Card key={bau.id} className={styles.singleCard}>
+              <Card.Header>
+                <CustomToggle eventKey={bau.id}>
+                  {bau.nome} - ID: {bau.id}
+                </CustomToggle>
+              </Card.Header>
+              <Card.Body>
                 <img
                   src={chest}
-                  className={styles.chest}
-                  alt=""
+                  className={styles.chestImage}
+                  alt="Imagem do Baú"
                   onClick={() => handleChestClick(bau.id)}
                 />
-              </div>
-            ))}
-          </div>
-        </>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       ) : (
         <p>Carregando...</p>
       )}
