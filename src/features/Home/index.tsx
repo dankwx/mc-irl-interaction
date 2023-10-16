@@ -72,7 +72,9 @@ export default function Home() {
         onHide={() => setShowModal(false)}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Titulo do Modal</Modal.Title>
+          <Modal.Title>
+            {selectedBau ? selectedBau.nome : "Nenhum baú selecionado"}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
           {selectedBau ? (
