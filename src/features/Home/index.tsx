@@ -48,7 +48,7 @@ export default function Home() {
             <Card key={bau.id} className={styles.singleCard}>
               <Card.Header>
                 <CustomToggle eventKey={bau.id}>
-                  {bau.nome} - ID: {bau.id}
+                  {bau.nome}
                 </CustomToggle>
               </Card.Header>
               <Card.Body>
