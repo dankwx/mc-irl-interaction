@@ -20,6 +20,25 @@ export default function Home() {
 
   const selectedBau = data?.find((bau) => bau.id === selectedBauId);
 
+  function generateItemImageURL(itemName: string) {
+    // Remove "minecraft_" from the itemName
+    const cleanedName = itemName.replace("minecraft:", "");
+
+    // Construct the image URL
+    const imageURL = `https://mc.nerothe.com/img/1.20.1/${cleanedName}.png`;
+
+    return imageURL;
+  }
+
+  type ItemData = {
+    nome: string;
+    quantidade: number;
+  };
+
+  function sortItemsByQuantity(items: ItemData[]) {
+    return items.slice().sort((a, b) => b.quantidade - a.quantidade);
+  }
+
   return (
     <div className={styles.HomeBody}>
       <Header />
@@ -58,15 +77,18 @@ export default function Home() {
         <Modal.Body className={styles.modalBody}>
           {selectedBau ? (
             <>
-              <img
-                src={chest}
-                className={styles.chestImage}
-                alt="Imagem do Baú"
-              />
               <ul>
-                {selectedBau.itens.map((item) => (
+                {sortItemsByQuantity(selectedBau.itens).map((item) => (
                   <li key={item.nome}>
-                    {item.nome}: {item.quantidade}
+                    <span className={styles.itemQuantity}>
+                      {item.quantidade}
+                    </span>
+                    <img
+                      src={generateItemImageURL(item.nome)}
+                      alt={item.nome}
+                      className={styles.itemImage}
+                    />
+                    {/* {item.nome}: {item.quantidade} */}
                   </li>
                 ))}
               </ul>
