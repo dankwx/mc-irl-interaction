@@ -2,12 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/styles/reset.css";
 import Home from "./features/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Control from "./features/Control";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Home />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/controle" element={<Control />} />
+
+        <Route
+          path="*"
+          element={
+            <div style={{ color: "white" }}>404 - Página não encontrada</div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
