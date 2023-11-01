@@ -125,7 +125,7 @@ export default function Home() {
         }}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Itens do botaoHeader</Modal.Title>
+          <Modal.Title>Todos itens</Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
           <ul>
