@@ -9,22 +9,36 @@ import chest from "../../assets/chest.png";
 import { useState } from "react";
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
+  const [showBauModal, setShowBauModal] = useState(false);
+  const [showHeaderModal, setShowHeaderModal] = useState(false);
   const [selectedBauId, setSelectedBauId] = useState<string | null>(null);
+  const [itemData, setItemData] = useState<ItemData[]>([]);
   const data = useFetchData<BauData[]>("http://localhost:3001/data");
 
   const handleChestClick = (bauId: string) => {
     setSelectedBauId(bauId);
-    setShowModal(true);
+    setShowBauModal(true);
+  };
+
+  const handleHeaderButtonClick = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/todos-itens");
+      if (response.ok) {
+        const items = await response.json();
+        setItemData(items);
+        setShowHeaderModal(true);
+      }
+    } catch (error) {
+      console.error("Failed to fetch items from the new route: ", error);
+    }
   };
 
   const selectedBau = data?.find((bau) => bau.id === selectedBauId);
 
   function generateItemImageURL(itemName: string) {
-    // Remove "minecraft_" from the itemName
     const cleanedName = itemName.replace("minecraft:", "");
 
-    // Construct the image URL
+    // puxa imagens de itens do site
     const imageURL = `https://mc.nerothe.com/img/1.20.1/${cleanedName}.png`;
 
     return imageURL;
@@ -42,14 +56,15 @@ export default function Home() {
   return (
     <div className={styles.HomeBody}>
       <Header />
+      <button className={styles.botaoHeader} onClick={handleHeaderButtonClick}>
+        Exibir todos itens
+      </button>
       {data ? (
         <div className={styles.containerCards}>
           {data.map((bau) => (
             <Card key={bau.id} className={styles.singleCard}>
               <Card.Header>
-                <CustomToggle eventKey={bau.id}>
-                  {bau.nome}
-                </CustomToggle>
+                <CustomToggle eventKey={bau.id}>{bau.nome}</CustomToggle>
               </Card.Header>
               <Card.Body>
                 <img
@@ -68,13 +83,14 @@ export default function Home() {
 
       <Modal
         className={styles.modalPai}
-        show={showModal}
-        onHide={() => setShowModal(false)}
+        show={showBauModal}
+        onHide={() => {
+          setShowBauModal(false);
+          setItemData([]);
+        }}
       >
         <Modal.Header closeButton>
-          <Modal.Title>
-            {selectedBau ? selectedBau.nome : "Nenhum baú selecionado"}
-          </Modal.Title>
+          <Modal.Title>{selectedBau ? selectedBau.nome : "Itens"}</Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
           {selectedBau ? (
@@ -90,7 +106,6 @@ export default function Home() {
                       alt={item.nome}
                       className={styles.itemImage}
                     />
-                    {/* {item.nome}: {item.quantidade} */}
                   </li>
                 ))}
               </ul>
@@ -98,6 +113,33 @@ export default function Home() {
           ) : (
             <p>Nenhum baú selecionado</p>
           )}
+        </Modal.Body>
+      </Modal>
+
+      <Modal
+        className={styles.modalPai}
+        show={showHeaderModal}
+        onHide={() => {
+          setShowHeaderModal(false);
+          setItemData([]);
+        }}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Itens do botaoHeader</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={styles.modalBody}>
+          <ul>
+            {sortItemsByQuantity(itemData).map((item) => (
+              <li key={item.nome}>
+                <span className={styles.itemQuantity}>{item.quantidade}</span>
+                <img
+                  src={generateItemImageURL(item.nome)}
+                  alt={item.nome}
+                  className={styles.itemImage}
+                />
+              </li>
+            ))}
+          </ul>
         </Modal.Body>
       </Modal>
     </div>

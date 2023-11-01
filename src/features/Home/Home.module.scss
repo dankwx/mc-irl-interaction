@@ -5,6 +5,13 @@ body {
     height: 100vh;
     background-color: #0c1020;
   }
+  .botaoHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0.5%;
+    margin-right: 0.5%;
+  }
 }
 
 .containerCards {
@@ -12,8 +19,8 @@ body {
   grid-template-columns: repeat(
     auto-fill,
     minmax(250px, 1fr)
-  ); /* Isso fará com que haja no máximo 4 colunas por linha */
-  gap: 16px; /* Espaçamento entre os cards */
+  ); /* máximo 4 colunas por linha */
+  gap: 16px;
   .card {
     width: 190px;
     height: 254px;
@@ -36,7 +43,7 @@ body {
     transition: all 0.5s ease-in-out;
   }
   .singleChest {
-    background-color: aqua;
+    background-color: rgb(255, 191, 0);
   }
 }
 
@@ -45,7 +52,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: aqua;
+  background-color: rgb(72, 255, 0);
   width: 900px;
 }
 
@@ -57,28 +64,40 @@ body {
 .modalPai {
   width: 100%;
   height: 100%;
-  .modalBody {
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+}
 
-    ul {
-      width: 100%;
-      height: 100%;
-      display: flex;
+.modalBody {
+  background-color: rgb(202, 169, 115);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 
-      li {
-        width: 100%;
-        span {
-          position: absolute;
-          background-color: rgb(0, 0, 0);
-          color: white;
-          padding: 4px;
-          border-radius: 10%;
-        }
-      }
-    }
+ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  width: calc(20% - 10px); /*largura 20% (5 itens horizontalmente) */
+  margin: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 4px;
+    border-radius: 10%;
+    margin-left: -6%;
   }
 }
