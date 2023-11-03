@@ -1,0 +1,14 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    .pageBody {
+      height: 100vh;
+      width: 100vw;
+      background-color: #0c1020;
+      color: rgb(165, 155, 155);
+
+      .bodyArea{
+        padding: 1%;
+      }
+    }
+}
