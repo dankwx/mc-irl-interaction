@@ -4,6 +4,7 @@ import "./assets/styles/reset.css";
 import Home from "./features/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Control from "./features/Control";
+import NotFound from "./features/NotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -18,7 +19,7 @@ root.render(
         <Route
           path="*"
           element={
-            <div style={{ color: "white" }}>404 - Página não encontrada</div>
+            <NotFound />
           }
         />
       </Routes>

@@ -6,7 +6,7 @@ export default function Control() {
     <div className={styles.ControlBody}>
       <Header />
       <div className={styles.switchArea}>
-        <h1>Função de Controle de Casa será implementado em breve...</h1>
+        <h1>Função de Controle de Casa será implementada em breve...</h1>
       </div>
     </div>
   );
