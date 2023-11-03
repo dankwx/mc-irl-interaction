@@ -4,6 +4,7 @@ body {
   .HomeBody {
     height: 100vh;
     background-color: #0c1020;
+    overflow: auto;
   }
   .botaoHeader {
     position: absolute;
@@ -28,7 +29,6 @@ body {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin-top: 0.6rem;
-    
   }
   .botaoHeader:hover {
     color: #fff;
@@ -44,6 +44,9 @@ body {
     minmax(250px, 1fr)
   ); /* máximo 4 colunas por linha */
   gap: 16px;
+  justify-content: center;
+  margin-left: 2%;
+  margin-right: 2%;
   .card {
     width: 190px;
     height: 254px;
@@ -51,6 +54,24 @@ body {
     background: rgb(22, 28, 65);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+  }
+  .cardBody {
+    display: flex;
+    justify-content: center;
+  }
+  .singleCard {
+    background-color: rgb(22, 28, 65);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .cardHeader{
+    color: white;
+    font-size: 0.8rem;
+    h1{
+      font-size: 1.5rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
   }
 }
 
@@ -82,15 +103,22 @@ body {
 .chestImage {
   width: 50%;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .modalPai {
   width: 100%;
   height: 100%;
+  .modalHeader{
+    background-color: rgb(106, 113, 168);
+    border-bottom: rgb(106, 113, 168);
+    color: white;
+  }
 }
 
 .modalBody {
-  background-color: rgb(202, 169, 115);
+  background-color: rgb(32, 36, 62);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -63,10 +63,10 @@ export default function Home() {
         <div className={styles.containerCards}>
           {data.map((bau) => (
             <Card key={bau.id} className={styles.singleCard}>
-              <Card.Header>
-                <CustomToggle eventKey={bau.id}>{bau.nome}</CustomToggle>
+              <Card.Header className={styles.cardHeader}>
+                <h1>{bau.nome}</h1>
               </Card.Header>
-              <Card.Body>
+              <Card.Body className={styles.cardBody}>
                 <img
                   src={chest}
                   className={styles.chestImage}
@@ -89,7 +89,7 @@ export default function Home() {
           setItemData([]);
         }}
       >
-        <Modal.Header closeButton>
+        <Modal.Header className={styles.modalHeader} closeButton>
           <Modal.Title>{selectedBau ? selectedBau.nome : "Itens"}</Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
@@ -124,7 +124,7 @@ export default function Home() {
           setItemData([]);
         }}
       >
-        <Modal.Header closeButton>
+        <Modal.Header className={styles.modalHeader} closeButton>
           <Modal.Title>Todos itens</Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
