@@ -7,11 +7,25 @@
   <img src="https://camo.githubusercontent.com/ec0d32e85caf4723d5182a75338c89f85a2c3679aed0c46c9ee9fd1c8dc2a316/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769742d2532334630353033332e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d676974266c6f676f436f6c6f723d7768697465">
   
 </p>
+<div align="center">
+   <img align="center" src="https://static.wikia.nocookie.net/minecraft/images/f/fe/GrassNew.png/revision/latest/scale-to-width-down/250?cb=20190903234415"> 
+<h1 align="center">Minecraft Control Hub</h1>
+</div>
 
-# Minecraft Control Hub
 
-Este é meu projeto mais ambicioso, permite que você acesse e interaja com items em seu mundo do minecraft (tanto singleplayer como um servidor), a partir do seu computadour ou do seu celular,
+Este é meu projeto mais ambicioso que criei, permite que você acesse e interaja com items em seu mundo do minecraft (tanto singleplayer como um servidor), a partir do seu computadour ou do seu celular,
 de qualquer lugar que estiver. Pense como se fosse algo como uma Casa Inteligente, só que no Minecraft;
+</br>
+</br>
+
+Este projeto é uma expressão direta da minha criatividade e habilidades, desde a concepção até a implementação. Cada linha de código, design e funcionalidade foram ideias originadas completamente por mim, sem influências externas de cursos, tutoriais ou vídeos. É uma realização pessoal e um reflexo do meu compromisso com a inovação e o aprendizado autodidata.
+
+
+Este é o repositório principal do projeto, mas o projeto é separado em Front-end e Back-end, caso queira ver o repositório do back-end:
+</br>
+<p align="center"><a href="https://github.com/dankwx/minecraft-irl-backend">Back-end</a></p>
+<p align="center">(Back-end feito com Node.js)</p>
+Por isso, caso tenha alguma dúvida, pode se sentir avontade para me enviar mensagem a respeito desse projeto e como criei etc
 
 ## Available Scripts
 
