@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+<center>![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)</center>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Minecraft Control Hub
+
+Este é meu projeto mais ambicioso, permite que você acesse e interaja com items em seu mundo do minecraft (tanto singleplayer como um servidor), a partir do seu computadour ou do seu celular,
+de qualquer lugar que estiver. Pense como se fosse algo como uma Casa Inteligente, só que no Minecraft;
 
 ## Available Scripts
 
