@@ -54,6 +54,18 @@ Por exemplo, na imagem abaixo, pode-se ver que há um baú com 3 items diferente
 // Neste exemplo, nosso baú possui 1 espada 1 linha e 1 machado, e nosso computador, com o programa realiza o seguinte: verifica se existe um baú acima dele, se sim, lê todos itens e quantidades destes items e envia como uma array para minha API, esta API recebe os dados e os formata para que o front possa consumir e não haja necessidade de formatação de dados por parte do front, oque reduziria o desempenho. </br>
 // este é o código que fiz em Lua e qeue realiza todas estas ações que descrevi acima: </br>
 // mostrar o código aqui, só que se possível com aquela função de expandir e ocultar
+<details>
+  <summary><strong>Código em Lua</strong></summary>
+  
+  <pre><code>
+function helloWorld() {
+  console.log('Hello, World!');
+}
+  </code></pre>
+  
+</details>
+
+assim
 </p>
 
 
