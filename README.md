@@ -24,9 +24,8 @@ Este projeto é uma expressão direta da minha criatividade e habilidades, desde
 Este é o repositório principal do projeto, mas o projeto é separado em Front-end e Back-end, caso queira ver o repositório do back-end:
 </br>
 <p align="center">(Back-end feito com Node.js)</p>
-Por isso, caso tenha alguma dúvida, pode se sentir avontade para me enviar mensagem a respeito desse projeto e como criei e pensei em tal função/método</br>
-Meu contato:
-<p align="left">
+Por isso, caso tenha alguma dúvida, pode se sentir avontade para me enviar mensagem a respeito desse projeto e como criei e pensei em tal parte do projeto</br>
+<p align="center">
    <a href="https://br.linkedin.com/in/daniel-kondlatsch" target="_blank">
       <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
    </a>
@@ -35,6 +34,20 @@ Meu contato:
    </a>
 </p>
 </p>
-(inserir badge do linkedIn e email), se sinta a vontade para comentar neste repositório também
+
+<h1>Como funciona?</h1>
+<p>Bom, primeiramente devemos evidenciar as dependências para que este projeto funcione.
+</br>
+Começando com a integração do Minecraft com a vida real, para conseguirmos fazer o Minecraft se conectar, interagir, enviar e receber (métodos GET e POST), nós usamos a biblioteca de mods 
+<a href="https://files.minecraftforge.net/net/minecraftforge/forge/" target="_blank">Forge</a>, e apenas um mod(add-on) no Minecraft:
+<a href="https://tweaked.cc/" target="_blank">CC:Tweaked </a>
+</p>
+</br>
+<p>
+   Explicando brevemente o que é o CC:Tweaked, ele é um mod que permite executar ações dentro do Minecraft usando a linguagem de programação Lua, substituindo métodos convencionais do próprio Minecraft, então ao invés de usar uma alavanca para acionar um sinal de restone, você pode simplesmente criar um programa em Lua que envie ou ative um sinal de redstone para tal lado/faceta do bloco.
+</br>
+</br>
+Mas aqui nós resolvemos elevar o nível da utilização deste mod.
+</p>
 
 
