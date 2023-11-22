@@ -47,7 +47,13 @@ Começando com a integração do Minecraft com a vida real, para conseguirmos fa
    Explicando brevemente o que é o CC:Tweaked, ele é um mod que permite executar ações dentro do Minecraft usando a linguagem de programação Lua, substituindo métodos convencionais do próprio Minecraft, então ao invés de usar uma alavanca para acionar um sinal de restone, você pode simplesmente criar um programa em Lua que envie ou ative um sinal de redstone para tal lado/faceta do bloco.
 </br>
 </br>
-Mas aqui nós resolvemos elevar o nível da utilização deste mod.
+Mas aqui resolvi elevar o nível da utilização deste mod: </br>
+É colocado um computador do CC:Tweaked, embaixo de um baú, e neste computador, eu criei apenas um programa em Lua, que realiza o método POST para minha API que criei configurada para receber estes dados e formatá-los assim que receber.</br>
+Por exemplo, na imagem abaixo, pode-se ver que há um baú com 3 items diferentes, e logo abaixo se encontra o computador com o programa que criei em Lua: </br>
+// (inserir imagem de preferencia em GIF, mostrando um simples baú e um computador do CC:Tweaked abaixo, no GIF abrir o computador, mostrar o código, e em seguida abrir o baú para mostrar os itens dentro do baú) </br>
+// Neste exemplo, nosso baú possui 1 espada 1 linha e 1 machado, e nosso computador, com o programa realiza o seguinte: verifica se existe um baú acima dele, se sim, lê todos itens e quantidades destes items e envia como uma array para minha API, esta API recebe os dados e os formata para que o front possa consumir e não haja necessidade de formatação de dados por parte do front, oque reduziria o desempenho. </br>
+// este é o código que fiz em Lua e qeue realiza todas estas ações que descrevi acima: </br>
+// mostrar o código aqui, só que se possível com aquela função de expandir e ocultar
 </p>
 
 
