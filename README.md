@@ -3,8 +3,6 @@
   <img src="https://camo.githubusercontent.com/18d07ed577dd8860b7d3000e4e17d5ac7a042c02cfdd7fcec19873e5340d25b4/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c75612d2532333243324437322e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6c7561266c6f676f436f6c6f723d7768697465">
   <img src="https://camo.githubusercontent.com/7d7b100e379663ee40a20989e6c61737e6396c1dafc3a7c6d2ada8d4447eb0e4/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6f64652e6a732d3644413535463f7374796c653d666f722d7468652d6261646765266c6f676f3d6e6f64652e6a73266c6f676f436f6c6f723d7768697465">
   <img src="https://camo.githubusercontent.com/5b148e7e2d5fdb541ea3cae400ea95884b75202ebe9846d996a20971602a8f01/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f46697265626173652d3033394245353f7374796c653d666f722d7468652d6261646765266c6f676f3d4669726562617365266c6f676f436f6c6f723d7768697465">
-  <img src="https://camo.githubusercontent.com/3f0e26b0951bab845a1bb9a7198ecca0da272e462921b6edd85879f3673b6927/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f73746d616e2d4646364333373f7374796c653d666f722d7468652d6261646765266c6f676f3d706f73746d616e266c6f676f436f6c6f723d7768697465">
-  <img src="https://camo.githubusercontent.com/ec0d32e85caf4723d5182a75338c89f85a2c3679aed0c46c9ee9fd1c8dc2a316/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769742d2532334630353033332e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d676974266c6f676f436f6c6f723d7768697465">
   
 </p>
 <div align="center">
@@ -49,23 +47,77 @@ Começando com a integração do Minecraft com a vida real, para conseguirmos fa
 </br>
 Mas aqui resolvi elevar o nível da utilização deste mod: </br>
 É colocado um computador do CC:Tweaked, embaixo de um baú, e neste computador, eu criei apenas um programa em Lua, que realiza o método POST para minha API que criei configurada para receber estes dados e formatá-los assim que receber.</br>
-Por exemplo, na imagem abaixo, pode-se ver que há um baú com 3 items diferentes, e logo abaixo se encontra o computador com o programa que criei em Lua: </br>
-// (inserir imagem de preferencia em GIF, mostrando um simples baú e um computador do CC:Tweaked abaixo, no GIF abrir o computador, mostrar o código, e em seguida abrir o baú para mostrar os itens dentro do baú) </br>
-// Neste exemplo, nosso baú possui 1 espada 1 linha e 1 machado, e nosso computador, com o programa realiza o seguinte: verifica se existe um baú acima dele, se sim, lê todos itens e quantidades destes items e envia como uma array para minha API, esta API recebe os dados e os formata para que o front possa consumir e não haja necessidade de formatação de dados por parte do front, oque reduziria o desempenho. </br>
-// este é o código que fiz em Lua e qeue realiza todas estas ações que descrevi acima: </br>
-// mostrar o código aqui, só que se possível com aquela função de expandir e ocultar
+</br>
+
+Por exemplo, no vídeo abaixo pode se ver um baú com 2 itens diferentes, e logo abaixo, nosso computador que executa o código reponsável por enviar
+o dado dos itens contidos dentro do baú para nosso servidor.
+</br>
+
+
+
+
+
+
+
+
+
+https://github.com/dankwx/minecraft-irl-interaction/assets/63110149/977728db-1947-44cd-854f-f04a2fd05c40
+
+
+
+E após o computador executar o programa, nosso baú aparece no nosso projeto:
+![image](https://github.com/dankwx/minecraft-irl-interaction/assets/63110149/6ef4c922-c479-4cbc-9532-8c4b531a637e)
+
+
+
+
+
+O programa realiza o seguinte: Verifica se existe um baú acima dele, se sim, lê todos itens e quantidades destes items e os envia em formato JSON para a API, esta API recebe os dados e os formata para que o front possa consumir e não haja necessidade de formatação de dados por parte do front, oque reduziria o desempenho. </br>
 <details>
   <summary><strong>Código em Lua</strong></summary>
   
   <pre><code>
-function helloWorld() {
-  console.log('Hello, World!');
+local url = "http://localhost:3001/baus"
+local chest = peripheral.wrap("top")
+local items = chest.list()
+local data = {
+  id = "baumine5",
+  nome = "bau3",
+  itens = {}
 }
+for slot, item in pairs(items) do
+  table.insert(data.itens, {nome = item.name, quantidade = item.count})
+end
+local headers = {
+  ["Content-Type"] = "application/json"
+}
+local response = http.post(url, textutils.serialiseJSON(data), headers)
+
+
   </code></pre>
   
 </details>
 
-assim
+E na nossa página principal, todos baús são exibidos e podemos ver os itens dentro deles um por um, como também podemos ver todos itens de todos baús.
+Vale ressaltar que todos baús mostram os itens em ordem de maior quantidade para menor.
+
+
+
+
+
+
+
+
+https://github.com/dankwx/minecraft-irl-interaction/assets/63110149/ddfbafd0-accb-41b2-aeac-2ab62a151964
+
+
+</br>
+Assim finalizo essa explicação sobre meu projeto. Já tenho planos para novas funções como interação com objetos (portas etc), que irei implantar em breve.
+
+
+
+
+
 </p>
 
 
