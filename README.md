@@ -73,30 +73,7 @@ E após o computador executar o programa, nosso baú aparece no nosso projeto:
 
 
 O programa realiza o seguinte: Verifica se existe um baú acima dele, se sim, lê todos itens e quantidades destes items e os envia em formato JSON para a API, esta API recebe os dados e os formata para que o front possa consumir e não haja necessidade de formatação de dados por parte do front, oque reduziria o desempenho. </br>
-<details>
-  <summary><strong>Código em Lua</strong></summary>
-  
-  <pre><code>
-local url = "http://localhost:3001/baus"
-local chest = peripheral.wrap("top")
-local items = chest.list()
-local data = {
-  id = "baumine5",
-  nome = "bau3",
-  itens = {}
-}
-for slot, item in pairs(items) do
-  table.insert(data.itens, {nome = item.name, quantidade = item.count})
-end
-local headers = {
-  ["Content-Type"] = "application/json"
-}
-local response = http.post(url, textutils.serialiseJSON(data), headers)
 
-
-  </code></pre>
-  
-</details>
 
 E na nossa página principal, todos baús são exibidos e podemos ver os itens dentro deles um por um, como também podemos ver todos itens de todos baús.
 Vale ressaltar que todos baús mostram os itens em ordem de maior quantidade para menor.
