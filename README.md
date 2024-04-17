@@ -89,7 +89,7 @@ https://github.com/dankwx/minecraft-irl-interaction/assets/63110149/ddfbafd0-acc
 
 
 </br>
-Assim finalizo essa explicação sobre meu projeto. Já tenho planos para novas funções como interação com objetos (portas etc), que irei implantar em breve.
+Assim finalizo essa explicação sobre meu projeto. Já tenho planos para novas funções como interação com objetos, que irei implantar no futuro.
 
 
 
