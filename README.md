@@ -18,10 +18,6 @@ de qualquer lugar que estiver. Pense como se fosse algo como uma Casa Inteligent
 
 Este projeto é uma expressão direta da minha criatividade e habilidades, desde a concepção até a implementação. Cada linha de código, design e funcionalidade foram ideias originadas completamente por mim, sem influências externas de cursos, tutoriais ou vídeos. É uma realização pessoal e um reflexo do meu compromisso com a inovação e o aprendizado autodidata.
 
-
-Este é o repositório principal do projeto, mas o projeto é separado em Front-end e Back-end, caso queira ver o repositório do back-end:
-</br>
-<p align="center">(Back-end feito com Node.js)</p>
 Por isso, caso tenha alguma dúvida, pode se sentir avontade para me enviar mensagem a respeito desse projeto e como criei e pensei em tal parte do projeto</br>
 <p align="center">
    <a href="https://br.linkedin.com/in/daniel-kondlatsch" target="_blank">
