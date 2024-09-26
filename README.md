@@ -38,7 +38,7 @@ Começando com a integração do Minecraft com a vida real, para conseguirmos fa
 </p>
 </br>
 <p>
-   Explicando brevemente o que é o CC:Tweaked, ele é um mod que permite executar ações dentro do Minecraft usando a linguagem de programação Lua, substituindo métodos convencionais do próprio Minecraft, então ao invés de usar uma alavanca para acionar um sinal de restone, você pode simplesmente criar um programa em Lua que envie ou ative um sinal de redstone para tal lado/faceta do bloco.
+   Explicando brevemente o que é o CC:Tweaked, ele é um mod que permite executar ações dentro do Minecraft usando a linguagem de programação Lua, substituindo métodos convencionais do próprio Minecraft, então ao invés de usar uma alavanca para acionar um sinal de restone, você pode criar um programa em Lua que envie ou ative um sinal de redstone para tal lado/faceta do bloco.
 </br>
 </br>
 Mas aqui resolvi elevar o nível da utilização deste mod: </br>
